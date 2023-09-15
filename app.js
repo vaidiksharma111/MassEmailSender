@@ -19,8 +19,9 @@ app.get('/', (req, res) => {
   res.sendFile(publicpath +'/index.html');
 });
 
-  app.post('/send-email', (req, res) => {
-  const { to, subject, message } = req.body;
+app.post('/send-email', async (req, res) => {
+  const { subject, message } = req.body;
+  const toAddresses = req.body.to.split(',').map(email => email.trim());
 
   // Create a nodemailer transporter
   const transporter = nodemailer.createTransport({
@@ -31,26 +32,28 @@ app.get('/', (req, res) => {
     }
   });
 
-  // Email data
-  const mailOptions = {
-    from: 'rayush920@gmail.com', // Sender's email address
-    to: to, // Recipient's email address
-    subject: subject, // Email subject
-    text: message, // Email message
-  };
+  try {
+    for (const recipient of toAddresses) {
+      // Email data
+      const mailOptions = {
+        from: 'rayush920@gmail.com', // Sender's email address
+        to: recipient, // Current recipient's email address
+        subject: subject, // Email subject
+        text: message, // Email message
+      };
 
-  // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
-    // res.send(publicpath);
-    if (error) {
-      console.log(error);
-      res.send('Error sending email.');
-    } else {
-      console.log('Email sent: ' + info.response);
-      res.sendFile(publicpath +'/success.html');
+      // Send the email
+      await transporter.sendMail(mailOptions);
+      console.log(`Email sent to: ${recipient}`);
     }
-  });
+
+    res.sendFile(publicpath + '/success.html');
+  } catch (error) {
+    console.error(error);
+    res.send('Error sending email.');
+  }
 });
+
 
 // Start the server
 app.listen(port, () => {
