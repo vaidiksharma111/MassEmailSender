@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const session=require('express-session');
 const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
@@ -14,15 +15,35 @@ const publicpath=path.join(__dirname , '/public');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(publicpath));
 
+//Configure express-session
+app.use(session({
+  secret: '1234', // A secret key used for session data encryption
+  resave: false,             // Do not save session data if not modified
+  saveUninitialized: true,   // Save uninitialized sessions
+}));
+
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(publicpath +'/index.html');
+
+  res.sendFile(publicpath +'/login.html');
+});
+const password = process.env.myPassword;
+app.get('/home', (req, res) => {
+   
+  const {email, password} = req.body;
+  // req.session.user="ayush";
+  req.session.user_email= email;
+  req.session.app_password= password;
+  res.sendFile(publicpath +'/home.html');
 });
 
+
+
 app.post('/send-email', async (req, res) => {
+   
   const { subject, message } = req.body;
   const toAddresses = req.body.to.split(',').map(email => email.trim());
-
+   
   // Create a nodemailer transporter
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -46,9 +67,10 @@ app.post('/send-email', async (req, res) => {
       await transporter.sendMail(mailOptions);
       console.log(`Email sent to: ${recipient}`);
     }
-
-    res.sendFile(publicpath + '/success.html');
+    // res.send(req.session.user_email);
+    // res.sendFile(publicpath + '/success.html');
   } catch (error) {
+  
     console.error(error);
     res.send('Error sending email.');
   }
