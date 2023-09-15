@@ -3,8 +3,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const path = require('path');
 const app = express();
+const path = require('path');
 const port = process.env.PORT || 3000;
 
 
