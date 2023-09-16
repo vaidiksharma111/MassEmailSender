@@ -79,5 +79,34 @@ public/index.html
 
     <button type="submit">Send Email</button>
   </form>
+
+  <form action="/file-submit" method="POST" >
+    <input type="file" name="xlsx" accept=".xlsx">
+    <button type="submit">Upload XL File</button>
+  </form>
+  
 </body>
+<script>
+  // Wait for the document to be fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the form element by its id
+    const form = document.getElementById("loginForm");
+
+    // Add a submit event listener to the form
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the form from actually submitting
+
+      // Access the form data
+      const email = form.elements.email.value;
+      const password = form.elements.password.value;
+
+      // Now you can use 'email' and 'password' as needed
+      console.log("Email:", email);
+      console.log("Password:", password);
+
+      // You can perform further actions here, such as making an API request or processing the data.
+    });
+  });
+</script>
+
 </html>
