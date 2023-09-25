@@ -1,112 +1,47 @@
-public/index.html
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Sender</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #edfbf1;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      text-align: center;
-      padding: 20px;
-      color: #333;
-    }
-
-    form {
-      background-color: #fff;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    input[type="email"],
-    input[type="text"],
-    textarea {
-      width: 90%;
-      padding: 10px;
-      margin: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-
-    textarea {
-      height: 75px;
-    }
-
-    button[type="submit"] {
-      background-color: #007BFF;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
-  <h1>Email Sender</h1>
-  <form action="/send-email" method="POST">
-    <label for="to">To (Comma-separated list of email addresses):</label>
-<input type="text" name="to" required><br>
+    <h1>Email Sender</h1>
+    <form action="/send-email" method="POST" enctype="multipart/form-data">
+        
+        <div id="receiver-email">
+            <label>To :</label>
+            <input type="text" id="to" name="to" required ><br>
+        </div>
+        
+        <label>Subject:</label>
+        <input type="text" name="subject" required><br>
 
-    <label for="subject">Subject:</label>
-    <input type="text" name="subject" required><br>
+        <label>Message:</label>
+        <textarea name="message" rows="4" required></textarea><br>
 
-    <label for="message">Message:</label>
-    <textarea name="message" rows="4" required></textarea><br>
+        <script src="script.js"></script>
 
-    <button type="submit">Send Email</button>
-  </form>
+        <label>Upload Excel File:</label>
+        <input type="file" name="file" id="fileInput" accept=".xlsx, .xls">
 
-  <form action="/file-submit" method="POST" >
-    <input type="file" name="xlsx" accept=".xlsx">
-    <button type="submit">Upload XL File</button>
-  </form>
-  
+        <div id="excelData"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+        
+        <button type="button" onclick="readAndPrintEmailColumn()">Fetch Email From File</button>
+        <!-- <label>Sender's Email</label>
+        <input type="email" name="sender-email" required><br>
+
+        <label> App specific Password </label>
+        <input type="Password" name="password"></textarea> <br> -->
+
+        <button type="submit">Send Email</button>
+
+    </form>
 </body>
-<script>
-  // Wait for the document to be fully loaded
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get the form element by its id
-    const form = document.getElementById("loginForm");
-
-    // Add a submit event listener to the form
-    form.addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent the form from actually submitting
-
-      // Access the form data
-      const email = form.elements.email.value;
-      const password = form.elements.password.value;
-
-      // Now you can use 'email' and 'password' as needed
-      console.log("Email:", email);
-      console.log("Password:", password);
-
-      // You can perform further actions here, such as making an API request or processing the data.
-    });
-  });
-</script>
 
 </html>
