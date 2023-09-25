@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Email Sender</h1>
+    <form action="/send-email" method="POST" enctype="multipart/form-data">
+        
+        <div id="receiver-email">
+            <label>To :</label>
+            <input type="text" id="to" name="to" required ><br>
+        </div>
+        
+        <label>Subject:</label>
+        <input type="text" name="subject" required><br>
+
+        <label>Message:</label>
+        <textarea name="message" rows="4" required></textarea><br>
+
+        <script src="script.js"></script>
+
+        <label>Upload Excel File:</label>
+        <input type="file" name="file" id="fileInput" accept=".xlsx, .xls">
+
+        <div id="excelData"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+        
+        <button type="button" onclick="readAndPrintEmailColumn()">Fetch Email From File</button>
+        <!-- <label>Sender's Email</label>
+        <input type="email" name="sender-email" required><br>
+
+        <label> App specific Password </label>
+        <input type="Password" name="password"></textarea> <br> -->
+
+        <button type="submit">Send Email</button>
+
+    </form>
+</body>
+
+</html>
