@@ -9,20 +9,50 @@
 </head>
 
 <body>
-    <h1>Email Sender</h1>
-    <form action="/send-email" method="POST" enctype="multipart/form-data">
-        
+
+    <script>
+        function updateTextarea() {
+  // Get the TinyMCE editor instance
+  const tinymceEditor = tinymce.get('my-expressjs-tinymce-app');
+
+  // Log the content before and after the update
+  console.log("Before update:", tinymceEditor.getContent({ format: 'text' }));
+
+  // Update the hidden textarea content with the editor's content
+  const plainTextContent = tinymceEditor.getContent({ format: 'text' });
+  document.querySelector('textarea[name="message"]').value = plainTextContent;
+
+  console.log("After update:", plainTextContent);
+}
+
+function updateAndSubmitForm() {
+  // Log the content just before form submission
+  const content = document.querySelector('textarea[name="message"]').value;
+  console.log("Content before submission:", content);
+
+  // Submit the form
+  document.querySelector('form').submit();
+}
+
+      </script>
+    <h1>Mass Email Sender</h1>
+    <form action="/send-email" method="POST" enctype="multipart/form-data" onsubmit="updateTextarea()">
+
         <div id="receiver-email">
             <label>To :</label>
-            <input type="text" id="to" name="to" required ><br>
+            <input type="text" id="to" name="to" required><br>
         </div>
-        
+
         <label>Subject:</label>
         <input type="text" name="subject" required><br>
 
         <label>Message:</label>
-        <textarea name="message" rows="4" required></textarea><br>
-
+        <!-- <textarea name="message" rows="4" required></textarea><br> -->
+        <!-- Text area matching the selector specified in the TinyMCE configuration -->
+        <div id="my-expressjs-tinymce-app-container">
+            <textarea id="my-expressjs-tinymce-app" name="message"> Please enter your message</textarea>
+        </div>
+        <div id="editor-container"></div>
         <script src="script.js"></script>
 
         <label>Upload Excel File:</label>
@@ -31,17 +61,22 @@
         <div id="excelData"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 
-        
+
         <button type="button" onclick="readAndPrintEmailColumn()">Fetch Email From File</button>
-        <!-- <label>Sender's Email</label>
+        <label>Sender's Email</label>
         <input type="email" name="sender-email" required><br>
 
         <label> App specific Password </label>
-        <input type="Password" name="password"></textarea> <br> -->
+        <input type="Password" name="password"></textarea> <br>
 
         <button type="submit">Send Email</button>
 
     </form>
 </body>
+<!-- Script element sourcing TinyMCE -->
+<script type="application/javascript" src="/tinymce/tinymce.min.js"></script>
+<!-- Script element sourcing the TinyMCE configuration -->
+<script type="application/javascript" src="/javascripts/my-tinymce-config.js"></script>
+
 
 </html>

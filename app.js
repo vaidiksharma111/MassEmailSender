@@ -8,7 +8,9 @@ const port = process.env.PORT || 3000;
 const publicpath = path.join(__dirname, '/public');
 const bodyParser = require('body-parser');
 const xlsx = require('xlsx');
+const striptags = require('striptags');
 const globalFoundWords = [];
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
 
 // Create a storage engine for multer
 // const storage = multer.memoryStorage();
@@ -28,9 +30,9 @@ app.use(session({
 
 function processMessageContent(req, res, next) {
   const message = req.body.message;
-
+  console.log("in this function processMessageContent message = ", message);
   // Find words starting with "#<" and ending with ">#" with a maximum length of 15 characters
-  const foundWords = message.match(/#<([^<>]{1,15})>#/g);
+  const foundWords = message.match(/##([^<>]{1,15})##/g);
   const extractedWords = [];
 
   if (foundWords) {
@@ -146,7 +148,7 @@ async function sendEmailsWithReplacement(req, matchingWords, columnValues, toAdd
     for (const word of matchingWords) {
       const values = columnValues[word];
       if (values.length > i) {
-        const regex = new RegExp(`#<${word}>#`, 'g');
+        const regex = new RegExp(`##${word}##`, 'g');
         messageContent = messageContent.replace(regex, values[i]);
       }
     }
@@ -171,18 +173,21 @@ async function sendEmailsWithoutReplacement(req, toAddresses) {
 }
 
 async function sendEmail(req, messageContent, recipient) {
+  console.log(req.body);
+  const plainTextContent = striptags(messageContent);
   const mailOptions = {
     from: req.session.user_email, // Sender's email address
     to: recipient, // Current recipient's email address
     subject: req.body.subject, // Email subject
-    text: messageContent, // Email message
+    // text: messageContent, // Email message
+    text: plainTextContent,
   };
 
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'vaidiksharma111@gmail.com',
-      pass: 'qjvl skyp msvt rqwd',
+      user: req.body['sender-email'],
+      pass: req.body.password,
     }
   });
 

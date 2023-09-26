@@ -87,3 +87,6 @@ textarea {
     color: silver;
   }
   
+  #my-expressjs-tinymce-app-container {
+    max-width: 600%; /* Adjust the max-width to your preferred width */
+  }
