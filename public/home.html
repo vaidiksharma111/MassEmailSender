@@ -6,77 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Sender</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.0/tinymce.min.js"></script>
+
 </head>
 
 <body>
+    <header>
+        <h1>Mass Email Sender</h1>
+        <p>Create and send personalized emails with ease.</p>
+    </header>
+    <!-- <h1>Mass Email Sender</h1> -->
+    <div class="container">
+        <a href="/" class="back-button">Home</a>
+        <form action="/send-email" method="POST" enctype="multipart/form-data">
+            <label for="file">Add personalization (please upload data in an excel file):</label>
+            <input type="file" name="file" id="fileInput" accept=".xlsx, .xls" onchange="readAndPrintEmailColumn()" >
 
-    <script>
-        function updateTextarea() {
-  // Get the TinyMCE editor instance
-  const tinymceEditor = tinymce.get('my-expressjs-tinymce-app');
+            <div id="receiver-email">
+                <label for="to">To :</label>
+                <input type="text" id="to" name="to" required>
+            </div>
 
-  // Log the content before and after the update
-  console.log("Before update:", tinymceEditor.getContent({ format: 'text' }));
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject" required>
 
-  // Update the hidden textarea content with the editor's content
-  const plainTextContent = tinymceEditor.getContent({ format: 'text' });
-  document.querySelector('textarea[name="message"]').value = plainTextContent;
+            <label for="message">Message:</label>
+            <div id="my-expressjs-tinymce-app-container">
+                <textarea id="my-expressjs-tinymce-app" name="message" required>Please enter your message</textarea>
+            </div>
 
-  console.log("After update:", plainTextContent);
-}
+            <label for="fileMaterial">Upload File:</label>
+            <input type="file" name="fileMaterial" id="fileMaterial"
+                accept=".xlsx, .xls, .pdf, .doc, .docx" multiple>
 
-function updateAndSubmitForm() {
-  // Log the content just before form submission
-  const content = document.querySelector('textarea[name="message"]').value;
-  console.log("Content before submission:", content);
+            <label for="sender-email">Sender's Email:</label>
+            <input type="email" name="sender-email" id="sender-email" class="small-input" required>
 
-  // Submit the form
-  document.querySelector('form').submit();
-}
+            <label for="password" class="password-label">App specific Password <a href="app_password_instructions.html"
+                target="_blank" class="password-link">(How to generate app-specific password)</a></label>
 
-      </script>
-    <h1>Mass Email Sender</h1>
-    <form action="/send-email" method="POST" enctype="multipart/form-data" onsubmit="updateTextarea()">
+            <div class="password-wrapper">
+                <input type="password" name="password" id="password" class="small-input">
+                <label for="password-toggle" class="label-show-password">Show Password:</label>
+                <input type="checkbox" id="password-toggle" class="large-checkbox"
+                    onchange="togglePasswordVisibility()">
+            </div>
 
-        <div id="receiver-email">
-            <label>To :</label>
-            <input type="text" id="to" name="to" required><br>
-        </div>
+            <dialog id="message-dialog" class="message-dialog">
+                <h2>Message Preview</h2>
+                <div id="message-preview" class="message-preview"></div>
+                <button id="close-dialog" onclick="closeMessageDialog()">Close</button>
+            </dialog>
+            <button type="button" class="get-started-button" onclick="openMessageDialog()">Preview Message</button>
 
-        <label>Subject:</label>
-        <input type="text" name="subject" required><br>
-
-        <label>Message:</label>
-        <!-- <textarea name="message" rows="4" required></textarea><br> -->
-        <!-- Text area matching the selector specified in the TinyMCE configuration -->
-        <div id="my-expressjs-tinymce-app-container">
-            <textarea id="my-expressjs-tinymce-app" name="message"> Please enter your message</textarea>
-        </div>
-        <div id="editor-container"></div>
-        <script src="script.js"></script>
-
-        <label>Upload Excel File:</label>
-        <input type="file" name="file" id="fileInput" accept=".xlsx, .xls">
-
-        <div id="excelData"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
-
-
-        <button type="button" onclick="readAndPrintEmailColumn()">Fetch Email From File</button>
-        <label>Sender's Email</label>
-        <input type="email" name="sender-email" required><br>
-
-        <label> App specific Password </label>
-        <input type="Password" name="password"></textarea> <br>
-
-        <button type="submit">Send Email</button>
-
-    </form>
+            <button type="submit" class="get-started-button">Send Email</button>
+        </form>
+    </div>
+    <footer>
+        &copy; 2023 Mass Email Sender. All rights reserved.
+    </footer>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+<script src="script.js"></script>
 <!-- Script element sourcing TinyMCE -->
 <script type="application/javascript" src="/tinymce/tinymce.min.js"></script>
 <!-- Script element sourcing the TinyMCE configuration -->
 <script type="application/javascript" src="/javascripts/my-tinymce-config.js"></script>
-
 
 </html>

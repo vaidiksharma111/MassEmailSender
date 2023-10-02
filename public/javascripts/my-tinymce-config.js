@@ -11,8 +11,5 @@ tinymce.init({
     toolbar: 'undo redo | casechange blocks | bold italic backcolor | ' +
       'alignleft aligncenter alignright alignjustify | ' +
       'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
-      forced_root_block: '',
-      force_br_newlines: true,
-      force_p_newlines: false,
   });
  
