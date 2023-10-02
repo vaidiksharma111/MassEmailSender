@@ -1,92 +1,299 @@
-/* Add your CSS rules here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f2f2f2;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
 }
 
-h1 {
+/* Header styles */
+header {
+    background-color: #2c3e50;
+    color: #ffffff;
     text-align: center;
+    padding: 40px 0;
 }
 
-form {
-    background-color: #fff;
-    max-width: 600px;
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-top: -30px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.container h2 {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+}
+
+/* Button styles */
+.get-started-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.get-started-button:hover {
+    background-color: #357ae8;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Form styles */
+form {
+    padding: 20px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
-textarea,
-select {
+textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 input[type="file"] {
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
-button[type="button"],
-button[type="submit"] {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
+.password-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+/* Message dialog styles */
+.message-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 999;
+}
+
+.message-dialog h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.message-dialog button {
+    display: block;
+    margin-top: 20px;
     padding: 10px 20px;
-    border-radius: 4px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.message-dialog button:hover {
+    background-color: #2c3e50;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #333333;
+    /* font-family: 'Roboto', sans-serif;  */
+}
+
+
+input[type="file"] {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    /* border: 2px solid #2c3e50; Border color when not hovered */
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #333333;
+    font-size: 16px;
+    outline: none;
     cursor: pointer;
 }
 
-button[type="button"]:hover,
-button[type="submit"]:hover {
-    background-color: #0056b3;
+/* Style when the file input is hovered */
+input[type="file"]:hover {
+    border-color: #2c3e50;
 }
 
-#receiver-email {
-    margin-top: 10px;
+/* Style when the file input is focused (clicked) */
+input[type="file"]:focus {
+    border-color: #2c3e50;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
 }
 
-#excelData {
-    margin-top: 20px;
+/* Style for the selected file name */
+input[type="file"]::file-selector-button {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-/* styles.css */
-
-/* Import the Roboto font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-/* Apply the Roboto font to the textarea */
-textarea {
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+/* Style when the file input is disabled */
+input[type="file"]:disabled {
+    background-color: #dddddd;
+    cursor: not-allowed;
 }
 
-.highlighted {
-    background-color: yellow; /* You can choose any highlight color */
-    font-weight: bold; /* Make the highlighted text bold, if desired */
-  }
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+}
 
-  /* CSS for highlighted placeholder words */
-.highlighted-placeholder {
+.back-button:hover {
+    background-color: #357ae8;
+}
+
+.password-label {
+    font-size: 18px;
     font-weight: bold;
-    color: silver;
-  }
-  
-  #my-expressjs-tinymce-app-container {
-    max-width: 600%; /* Adjust the max-width to your preferred width */
-  }
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.password-link {
+    color: #357ae8; /* Link color */
+    text-decoration: none;
+    margin-left: 10px; /* Adjust the spacing between label and link */
+}
+
+.password-link:hover {
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+.small-input {
+    max-width: 500px; 
+}
+
+/* Style the "Show Password" label */
+label[for="password-toggle"] {
+    font-size: 18px; /* Increase font size for emphasis */
+    font-weight: bold; /* Make the text bold for prominence */
+    color: #333; /* Dark text color */
+    display: inline-block; /* Display label inline with the checkbox */
+    margin-top: 10px; /* Add top margin for spacing */
+}
+
+/* Style the checkbox container */
+.password-wrapper {
+    display: flex; /* Use flex for horizontal alignment */
+    align-items: center; /* Vertically align items */
+}
+
+/* Style the checkbox itself */
+#password-toggle {
+    margin-left: 5px; /* Add left margin for spacing */
+    width: 20px; /* Increase checkbox size */
+    height: 20px; /* Increase checkbox size */
+    cursor: pointer; /* Change cursor on hover to indicate interactivity */
+}
+
+/* Add a custom checkbox appearance */
+#password-toggle::before {
+    font-family: 'Font Awesome 5 Free'; /* Use Font Awesome for the icon */
+    font-weight: 900; /* Bold weight for the icon */
+    font-size: 18px; /* Icon size */
+    color: #333; /* Icon color */
+    display: inline-block; /* Display the icon inline with the checkbox */
+    margin-right: 5px; /* Add right margin for spacing */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Change icon color on hover for visual feedback */
+#password-toggle:hover::before {
+    color: #2c3e50; /* Change icon color on hover */
+}
+
+.label-show-password {
+    margin-left: auto; /* Move the label to the right */
+    margin-right: 10px; /* Add right margin for spacing */
+}
+
+/* Button styles */
+button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Add some margin between buttons */
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+
+#my-expressjs-tinymce-app {
+    font-family: Arial, sans-serif; /* Change the font-family to your desired font */
+    /* Add other CSS styles as needed */
+}

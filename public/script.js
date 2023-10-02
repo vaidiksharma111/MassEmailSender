@@ -40,12 +40,77 @@ function readAndPrintEmailColumn() {
 
     // Set the "receiver-email" input field value with comma-separated email values
     emailInput.value = emailValues.join(', ');
+
+    // Make the input field non-editable
+    emailInput.readOnly = true;
   };
 
   reader.readAsArrayBuffer(file);
 }
 
+function togglePasswordVisibility() {
+  const passwordInput = document.getElementById('password');
+  const passwordToggle = document.getElementById('password-toggle');
+
+  passwordToggle.addEventListener('change', function () {
+      if (passwordToggle.checked) {
+          passwordInput.type = 'text';
+      } else {
+          passwordInput.type = 'password';
+      }
+  });
+}
 
 
+// Function to close the dialog
+function closeMessageDialog() {
+  const dialog = document.getElementById('message-dialog');
+  dialog.close();
+}
 
+// Function to display the message content
+function previewMessage() {
+  // Get the content from the TinyMCE editor
+  const messageContent = tinymce.get('my-expressjs-tinymce-app').getContent();
+
+  // Display the preview content in the dialog
+  const previewDiv = document.getElementById('message-preview');
+  previewDiv.innerHTML = messageContent;
+  
+}
+
+function openMessageDialog() {
+  console.log("button clicked");
+  const to = document.getElementById('to').value;
+  const subject = document.getElementById('subject').value;
+  const messageContent = tinymce.get('my-expressjs-tinymce-app').getContent();
+  const fileInput = document.getElementById('fileInput');
+  const file = fileInput.files[0];
+
+  // Create a FormData object and append your data to it
+  const formData = new FormData();
+  formData.append('to', to);
+  formData.append('subject', subject);
+  formData.append('messageContent', messageContent);
+  formData.append('file', file);
+
+  fetch('/display-message', {
+    method: 'POST',
+    body: formData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      } else {
+        throw new Error('POST request failed');
+      }
+    })
+    .then((responseContent) => {
+      const newTab = window.open();
+      newTab.document.write(responseContent);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
 

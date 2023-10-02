@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Data</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <header>
+    <h1>Preview Message</h1> 
+  </header>
+</head>
+
+<body>
+  <div class="container">
+    
+
+    <div id="email-content">
+        <div id="receiver-email">
+            <label>To :</label>
+            <input type="text" id="to" name="to" value="${to}" readonly><br>
+        </div>
+
+        <label>Subject:</label>
+        <input type="text" name="subject" id="subject" value="${subject}" readonly><br>
+
+        <label>Message:</label>
+        <div id="my-expressjs-tinymce-app-container">
+            <textarea id="my-expressjs-tinymce-app" name="message" readonly>${message}</textarea>
+        </div><br>
+        <div id="editor-container"></div>
+    </div>
+
+    <div id="button-container">
+        <button id="previousButton">Previous</button>
+        <button id="nextButton">Next</button>
+        <button id="closeButton">Close</button>
+    </div>
+</div>
+  
+  <script>
+    
+    function updateEmailContent(buttonId) {
+      fetch('/' + buttonId)
+        .then((response) => {
+          if (response.ok) {
+            // If the GET request is successful, replace the email content with the new email content
+            return response.text();
+          } else {
+            throw new Error('GET request failed');
+          }
+        })
+        .then((newContent) => {
+          // Replace the email content with the new email content
+          const emailContent = document.getElementById('email-content');
+          emailContent.innerHTML = newContent;
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+
+    // Add an event listener to a container that wraps the buttons
+    document.getElementById('button-container').addEventListener('click', (event) => {
+      const target = event.target;
+
+      if (target.id === 'nextButton') {
+        // Call the updateEmailContent function with the appropriate buttonId
+        updateEmailContent('next-email');
+      } else if (target.id === 'previousButton') {
+        // Call the updateEmailContent function with the appropriate buttonId
+        updateEmailContent('previous-email');
+      } else if (target.id === 'closeButton') {
+        window.close();
+      }
+    });
+
+  </script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+  <script type="application/javascript" src="/tinymce/tinymce.min.js"></script>
+<script type="application/javascript" src="/javascripts/my-tinymce-config.js"></script>
+
+</html>
