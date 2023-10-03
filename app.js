@@ -32,7 +32,7 @@ app.use(session({
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(publicpath + '/index.html');
+  res.sendFile(publicpath + '/homepage.html');
 });
 
 app.get('/how-to-use', (req, res) => {
@@ -68,7 +68,7 @@ app.post('/display-message', upload.single('file'), async (req, res) => {
     const plainMessage = striptags(message);
     const file = req.file;
 
-    const templateHtml = fs.readFileSync(publicpath + '/display.html', 'utf8');
+    const templateHtml = fs.readFileSync(publicpath + '/preview-email.html', 'utf8');
     const emailsList = await previewFunctions.processMessageContent(req);
     console.log(emailsList);
 
