@@ -113,4 +113,19 @@ function openMessageDialog() {
       console.error('Error:', error);
     });
 }
+function showLoading() {
+  // Disable the submit button
+  document.querySelector('button[type="submit"]').disabled = true;
 
+  // Add the blur class to the container to blur the background
+  document.querySelector('.container').classList.add('blur-background');
+
+  // Show the loader by setting the display property to "block"
+  const loader = document.querySelector('.loader');
+  loader.style.display = 'block';
+
+  // Optionally, set a timeout to hide the loading container after some time
+  setTimeout(() => {
+    loader.style.display = 'none';
+  }, 5000); // Adjust the timeout duration as needed
+}

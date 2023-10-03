@@ -111,7 +111,9 @@ function extractValuesInColumn(sheet, columnIndex) {
 
     for (let i = 1; i < rows.length; i++) {
         if (rows[i][columnIndex]) {
-            valuesInColumn.push(rows[i][columnIndex]);
+            const valueAsString = String(rows[i][columnIndex]); // Convert the value to a string
+            valuesInColumn.push(valueAsString);
+            // valuesInColumn.push(rows[i][columnIndex]);
         }
     }
 

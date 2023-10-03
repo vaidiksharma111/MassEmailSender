@@ -35,48 +35,26 @@ app.get('/', (req, res) => {
   res.sendFile(publicpath + '/index.html');
 });
 
+app.get('/how-to-use', (req, res) => {
+  res.sendFile(publicpath + '/help.html');
+});
+
 app.get('/create-email', (req, res) => {
   res.sendFile(publicpath + '/home.html');
 });
 
-// app.post('/send-email', upload.fields([{ name: 'file' }, { name: 'fileMaterial' }]), async (req, res) => {
-//   // console.log('Global Found Words:', req.globalFoundWords);
-//   console.log(req.files);
-//   if (req.files && req.files['file']) {
-//     console.log("First file are present");
-//   } 
-//   if (req.files && req.files['fileMaterial']) {
-//     console.log("Second file are present");
-//   }
-
-//   res.redirect('/success.html');
-// });
 
 app.post('/send-email', upload.fields([{ name: 'file' }, { name: 'fileMaterial' }]), emailFunctions.processMessageContent, async (req, res) => {
   console.log('Global Found Words:', req.globalFoundWords);
   try {
     await emailFunctions.processEmailContent(req);
 
-    // Redirect to success.html after sending the email
     res.redirect('/success.html');
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal server error.' });
   }
 });
-
-// app.post('/send-email', upload.single('file'), emailFunctions.processMessageContent, async (req, res) => {
-//   console.log('Global Found Words:', req.globalFoundWords);
-//   try {
-//     await emailFunctions.processEmailContent(req);
-
-//     // Redirect to success.html after sending the email
-//     res.redirect('/success.html');
-//   } catch (error) {
-//     console.error('Error:', error);
-//     res.status(500).json({ error: 'Internal server error.' });
-//   }
-// });
 
 
 // Define a route to handle the POST request

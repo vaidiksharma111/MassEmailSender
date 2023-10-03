@@ -71,6 +71,7 @@ header p {
 }
 
 .get-started-button:hover {
+    background-color: #435668;
     background-color: var(--white);
 }
 
@@ -215,6 +216,7 @@ input[type="file"]:disabled {
 }
 
 .back-button:hover {
+    background-color: #435668;
     background-color: var(--white);
 }
 
@@ -311,6 +313,27 @@ button:hover {
     /* Add other CSS styles as needed */
 }
 
+.blur-background {
+    filter: blur(5px); /* Adjust the blur intensity as needed */
+    pointer-events: none; /* Prevent interaction with blurred elements */
+}
+
+.modal {
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #2c3e50b4;
+}
+
+.loader {
+    height: 40px;
+    position: sticky;
+    top: 50vh;
+    left: 46vw;
+    z-index: 2;
+}
 @media screen and (max-width: 560px) {
     .buttons {
         display: flex;

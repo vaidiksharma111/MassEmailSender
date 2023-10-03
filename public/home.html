@@ -12,6 +12,8 @@
 </head>
 
 <body>
+    <img class='loader' src="https://media.tenor.com/CY7LvPZrd-UAAAAj/circle-loading.gif" alt="" style="display: none;">
+
     <header>
         <h1>Mass Email Sender</h1>
         <p>Create and send personalized emails with ease.</p>
@@ -19,9 +21,14 @@
     <!-- <h1>Mass Email Sender</h1> -->
     <div class="container">
         <a href="/" class="back-button">Home</a>
+
+        <form action="/send-email" method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
+            <label for="file">Add personalization (please upload data in an excel file):</label>
+
         <form action="/send-email" method="POST" enctype="multipart/form-data">
             <label for="file">Add personalization</label>
             <p>Please upload data in an excel file (.xls, .xlsx)</p>
+
             <input type="file" name="file" id="fileInput" accept=".xlsx, .xls" onchange="readAndPrintEmailColumn()" >
 
             <div id="receiver-email">
