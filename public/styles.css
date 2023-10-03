@@ -1,7 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;600;700&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
 }
+
+:root {
+    --grey: #2c3e50;
+    --white: #4f6b87;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f2f2f2;
@@ -11,30 +17,32 @@ body {
 
 /* Header styles */
 header {
-    background-color: #2c3e50;
+    background-color: var(--grey);
     color: #ffffff;
     text-align: center;
     padding: 40px 0;
 }
 
 header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    padding: 0 10px;
 }
 
 header p {
-    font-size: 18px;
+    font-size: 1rem;
+    padding: 0 10px;
 }
 
 /* Container styles */
 .container {
-    max-width: 800px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-top: -30px;
+    margin-bottom: 30px;
 }
 
 .container h2 {
@@ -45,30 +53,30 @@ header p {
 
 .container p {
     font-size: 16px;
-    line-height: 1.6;
-    color: #555555;
+    color: #128931;
 }
 
 /* Button styles */
 .get-started-button {
     display: inline-block;
-    padding: 15px 30px;
-    background-color: #2c3e50;
+    padding: 10px 20px;
+    background-color: var(--grey);
     color: #ffffff;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    width: 49%;
 }
 
 .get-started-button:hover {
-    background-color: #357ae8;
+    background-color: var(--white);
 }
 
 /* Footer styles */
 footer {
-    background-color: #333333;
+    background-color: var(--grey);
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
@@ -76,15 +84,15 @@ footer {
 
 /* Form styles */
 form {
-    padding: 20px;
+    padding: 5px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea {
-    width: 100%;
-    padding: 10px;
+    width: 99%;
+    padding: 6px 0;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -95,9 +103,11 @@ input[type="file"] {
     margin: 10px 0;
 }
 
-.password-wrapper {
+.show-password {
     display: flex;
     align-items: center;
+    min-width: 100px;
+    justify-content: space-evenly;
 }
 
 input[type="checkbox"] {
@@ -127,7 +137,7 @@ input[type="checkbox"] {
     display: block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #2c3e50;
+    background-color: var(--grey);
     color: #ffffff;
     text-align: center;
     font-size: 16px;
@@ -137,12 +147,12 @@ input[type="checkbox"] {
 }
 
 .message-dialog button:hover {
-    background-color: #2c3e50;
+    background-color: var(--white);
 }
 
 label {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     display: block;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -152,10 +162,10 @@ label {
 
 
 input[type="file"] {
-    width: 100%;
+    width: 98%;
     padding: 5px;
     margin: 10px 0;
-    /* border: 2px solid #2c3e50; Border color when not hovered */
+    /* border: 2px solid var(--grey); Border color when not hovered */
     border-radius: 5px;
     background-color: #f2f2f2;
     color: #333333;
@@ -166,18 +176,18 @@ input[type="file"] {
 
 /* Style when the file input is hovered */
 input[type="file"]:hover {
-    border-color: #2c3e50;
+    border-color: var(--white);
 }
 
 /* Style when the file input is focused (clicked) */
 input[type="file"]:focus {
-    border-color: #2c3e50;
+    border-color: var(--grey);
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
 }
 
 /* Style for the selected file name */
 input[type="file"]::file-selector-button {
-    background-color: #2c3e50;
+    background-color: var(--grey);
     color: #ffffff;
     padding: 10px 20px;
     border: none;
@@ -194,7 +204,7 @@ input[type="file"]:disabled {
 .back-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #2c3e50;
+    background-color: var(--grey);
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -205,22 +215,21 @@ input[type="file"]:disabled {
 }
 
 .back-button:hover {
-    background-color: #357ae8;
+    background-color: var(--white);
 }
 
 .password-label {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     display: block;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     color: #333333;
 }
 
 .password-link {
-    color: #357ae8; /* Link color */
+    color: #1b5dc6; /* Link color */
     text-decoration: none;
-    margin-left: 10px; /* Adjust the spacing between label and link */
 }
 
 .password-link:hover {
@@ -234,16 +243,16 @@ input[type="file"]:disabled {
 /* Style the "Show Password" label */
 label[for="password-toggle"] {
     font-size: 18px; /* Increase font size for emphasis */
-    font-weight: bold; /* Make the text bold for prominence */
+    font-weight: normal; /* Make the text bold for prominence */
     color: #333; /* Dark text color */
     display: inline-block; /* Display label inline with the checkbox */
-    margin-top: 10px; /* Add top margin for spacing */
 }
 
 /* Style the checkbox container */
 .password-wrapper {
-    display: flex; /* Use flex for horizontal alignment */
-    align-items: center; /* Vertically align items */
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start; 
 }
 
 /* Style the checkbox itself */
@@ -265,28 +274,32 @@ label[for="password-toggle"] {
     transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+}
 /* Change icon color on hover for visual feedback */
 #password-toggle:hover::before {
-    color: #2c3e50; /* Change icon color on hover */
+    color: var(--grey); /* Change icon color on hover */
 }
 
 .label-show-password {
-    margin-left: auto; /* Move the label to the right */
-    margin-right: 10px; /* Add right margin for spacing */
+    margin-left: 10px;
 }
 
 /* Button styles */
 button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #2c3e50;
+    background-color: var(--grey);
     color: #ffffff;
     text-align: center;
     font-size: 18px;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin-right: 10px; /* Add some margin between buttons */
+    border: none;
 }
 
 button:hover {
@@ -296,4 +309,16 @@ button:hover {
 #my-expressjs-tinymce-app {
     font-family: Arial, sans-serif; /* Change the font-family to your desired font */
     /* Add other CSS styles as needed */
+}
+
+@media screen and (max-width: 560px) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .get-started-button {
+        width: 100%;
+        padding: 2% 10%;
+    }
 }
