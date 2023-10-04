@@ -17,7 +17,7 @@ body {
 
 /* Header styles */
 header {
-    background-color: #2c3e50;
+    background: var(--grey);
     color: #ffffff;
     text-align: center;
     padding: 50px 0;
@@ -29,8 +29,8 @@ header h1 {
 }
 
 header p {
-    font-size: 1rem;
-    padding: 0 10px;
+    font-size: 1.1rem;
+    padding: 0 20px;
 }
 
 /* Container styles */
@@ -60,7 +60,7 @@ header p {
 /* Button styles */
 .get-started-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: var(--grey);
     color: #ffffff;
     text-align: center;
@@ -215,9 +215,6 @@ input[type="file"]:disabled {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    position: absolute;
-    top: 20px; /* Adjust the top position as needed */
-    right: 20px; /* Adjust the right position as needed */
 }
 
 .back-button:hover {
@@ -295,10 +292,38 @@ label[for="password-toggle"] {
     margin-left: 10px;
 }
 
+#button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#previousButton, #nextButton, #closeButton {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    width: 90px;
+}
+
+#closeButton {
+    width: 75px;
+    margin-right: 10px;
+    background-color: rgb(193, 1, 1);
+}
+
+#closeButton:hover {
+   background-color: rgb(152, 1, 1);
+}
+
+#navButtons {
+    display: flex;
+    gap: 10px;
+}
+
 /* Button styles */
 button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 8px 20px;
     background-color: var(--grey);
     color: #ffffff;
     text-align: center;
@@ -310,7 +335,7 @@ button {
 }
 
 button:hover {
-    background-color: #357ae8;
+    background-color: var(--white);
 }
 
 #my-expressjs-tinymce-app {
@@ -341,7 +366,7 @@ button:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #2c3e50b4;
+    background-color: var(--grey);
 }
 
 .loader {

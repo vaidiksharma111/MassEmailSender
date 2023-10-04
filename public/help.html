@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Use Mass Email Sender</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <style>
-
+        :root {
+            --grey: #2c3e50;
+            --white: #4f6b87;
+        }
+        *, body, html {
+            font-family: 'Poppins', sans-serif;
+        }
         h1 {
             font-size: 36px;
         }
@@ -47,6 +52,10 @@
             position: relative;
         }
 
+        .help-image{
+            width: 100%;
+        }
+
         #compose-email {
             width: 100%;
             height: 200px;
@@ -65,26 +74,49 @@
 
         footer {
             text-align: center;
-            margin-top: 20px;
+            background-color: var(--grey);
+            bottom: 0;
+            color: #ffffff;
             font-size: 16px;
+            padding: 20px 0;
+            width: 100%;
+            bottom: 0;
+            margin-top: 20px;
         }
+
         .email-templates-slider {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-    }
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .slider-container {
-        display: flex;
-        width: 500%; /* Adjust the width based on the number of images */
-        transition: transform 3s ease-in-out; /* Smooth transition */
-    }
+        .slider-container {
+            display: flex;
+            transition: transform 3s ease-in-out; 
+        }
 
-    .slider-container img {
-        width: 20%; /* Adjust the image size as needed */
-        min-width: 200px; /* Set a minimum width for responsiveness */
-    }
+        .start-button {
+            display: block;
+            width: 96%;
+            margin: 30px auto;
+            padding: 10px 10px;
+            background-color: var(--grey);
+            color: #ffffff;
+            text-align: center;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
+        .start-button:hover {
+            background-color: var(--white);
+        }
+
+        #preview-button {
+            font-size: 15px;
+            padding: 10px 15px;
+        }
     </style>
 </head>
 
@@ -95,8 +127,11 @@
     </header>
 
     <div class="container">
-        <a href="/" class="back-button">Home</a>
-        <a href="/create-email" class="back-button1">Get Started</a>
+        <div class="routes">
+            <a class="back-button" href="/">Home</a>
+            <a class="back-button" href="/create-email">Send Mail</a>
+            <a class="back-button" href="contact-page.html">Contact Us</a>
+        </div>
         <!-- Step 1: Personalize Your Emails -->
         <section class="step">
             <h2>Step 1: Personalize Your Emails</h2>
@@ -107,7 +142,7 @@
         <section class="step">
             <h2>Example date file</h2>
             <div class="slider-container">
-                <img src="images/data.png" alt="Email message">
+                <img class='help-image' src="images/data.png" alt="Email message">
             </div>
         </section>
         
@@ -115,7 +150,7 @@
         <section class="step">
             <h2>How to Write</h2>
             <div class="slider-container">
-                <img src="images/message.png" alt="Email message">
+                <img class='help-image' src="images/message.png" alt="Email message">
             </div>
         </section>
 
@@ -124,11 +159,11 @@
             <h2>How it Will Look Like</h2>
             <div class="email-templates-slider" >
                 <div class="slider-container">
-                    <img src="images/email1.png" alt="Email Template 1">
-                    <img src="images/email2.png" alt="Email Template 2">
+                    <!-- <img src="images/email1.png" alt="Email Template 1"> -->
+                    <!-- <img src="images/email2.png" alt="Email Template 2">
                     <img src="images/email3.png" alt="Email Template 3">
                     <img src="images/email4.png" alt="Email Template 4">
-                    <img src="images/email5.png" alt="Email Template 5">
+                    <img src="images/email5.png" alt="Email Template 5"> -->
                 </div>
             </div>
         </section>
@@ -159,12 +194,10 @@
             <!-- Add your preview button here -->
             <button id="preview-button">Preview Message</button>
         </section>
+        <div class="get-started-button-container">
+            <a href="/create-email" class="start-button">Get Started Now &#x279C;</a>
+        </div>
     </div>
-
-    <div class="get-started-button-container">
-        <a href="/create-email" class="get-started-button">Get Started Now</a>
-    </div>
-
     <footer>
         &copy; 2023 Mass Email Sender. All rights reserved.
     </footer>

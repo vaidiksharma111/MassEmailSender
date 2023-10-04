@@ -1,3 +1,8 @@
+:root {
+    --grey: #2c3e50;
+    --white: #4f6b87;
+}
+
 html,
 body {
     height: 100%;
@@ -16,7 +21,7 @@ body {
 }
 
 header {
-    background-color: #2c3e50;
+    background-color: var(--grey);
     color: #ffffff;
     text-align: center;
     padding: 50px 0;
@@ -46,7 +51,7 @@ header p {
 
 footer {
     text-align: center;
-    background-color: #34495e;
+    background-color: var(--grey);
     bottom: 0;
     color: #ffffff;
     font-size: 16px;
@@ -95,16 +100,16 @@ footer {
 }
 
 .get-started-button {
-    display: block;
-    width: 200px;
+    width: 44%;
     margin: 30px auto;
-    padding: 15px 20px;
-    background-color: #2c3e50;
+    padding: 10px 10px;
+    background-color: var(--grey);
     color: #ffffff;
     text-align: center;
     font-size: 18px;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .hover {
@@ -117,12 +122,9 @@ footer {
     gap: 20px;
 }
 
-/* @media (min-width: 968px) {
-    footer {
-        position: absolute;
-        bottom: 0;
-    }
-} */
+.get-started-button:hover{
+    background-color: var(--white);
+}
 
 @media (max-width: 768px) and (min-width: 551px) {
     .advantages {
@@ -148,25 +150,21 @@ footer {
 
 .back-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 15px;
     background-color: var(--grey);
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 20px;
 }
 
 .back-button:hover {
-    background-color: #435668;
     background-color: var(--white);
 }
 
 .buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 5%;
 }
 
@@ -174,10 +172,19 @@ footer {
     .buttons {
         display: flex;
         flex-direction: column;
-        gap: 10px;
     }
     .get-started-button {
-        width: 100%;
+        width: 78%;
         padding: 2% 10%;
+        margin: 10px 0px;
     }
+}
+
+.routes {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

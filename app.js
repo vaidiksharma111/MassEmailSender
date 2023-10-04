@@ -40,7 +40,7 @@ app.get('/how-to-use', (req, res) => {
 });
 
 app.get('/create-email', (req, res) => {
-  res.sendFile(publicpath + '/home.html');
+  res.sendFile(publicpath + '/create-email.html');
 });
 
 

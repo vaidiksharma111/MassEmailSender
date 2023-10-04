@@ -8,23 +8,22 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <header>
     <h1>Preview Message</h1> 
+    <p>Preview your email before sending to see how the recipient will view it. Ensure everything looks perfect.</p>
   </header>
 </head>
 
 <body>
   <div class="container">
-    
-
     <div id="email-content">
         <div id="receiver-email">
-            <label>To :</label>
+            <label>Recipent</label>
             <input type="text" id="to" name="to" value="${to}" readonly><br>
         </div>
 
-        <label>Subject:</label>
+        <label>Subject</label>
         <input type="text" name="subject" id="subject" value="${subject}" readonly><br>
 
-        <label>Message:</label>
+        <label>Message</label>
         <div id="my-expressjs-tinymce-app-container">
             <textarea id="my-expressjs-tinymce-app" name="message" readonly>${message}</textarea>
         </div><br>
@@ -32,10 +31,12 @@
     </div>
 
     <div id="button-container">
-        <button id="previousButton">Previous</button>
-        <button id="nextButton">Next</button>
-        <button id="closeButton">Close</button>
-    </div>
+      <div id="navButtons">
+          <button id="previousButton">Previous</button>
+          <button id="nextButton">Next</button>
+      </div>
+      <button id="closeButton">Close</button>
+  </div>
 </div>
   
   <script>
