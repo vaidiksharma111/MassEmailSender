@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         :root {
-            --grey: #2c3e50;
-            --white: #4f6b87;
+             --grey: #536976;
+            --white: #292E49;
         }
         *, body, html {
             font-family: 'Poppins', sans-serif;
@@ -74,7 +74,7 @@
 
         footer {
             text-align: center;
-            background-color: var(--grey);
+            background: linear-gradient(to right, var(--grey), var(--white));
             bottom: 0;
             color: #ffffff;
             font-size: 16px;
@@ -100,7 +100,7 @@
             width: 96%;
             margin: 30px auto;
             padding: 10px 10px;
-            background-color: var(--grey);
+            background: linear-gradient(to right, var(--grey), var(--white));
             color: #ffffff;
             text-align: center;
             font-size: 18px;
@@ -159,17 +159,15 @@
             <h2>How it Will Look Like</h2>
             <div class="email-templates-slider" >
                 <div class="slider-container">
-                    <!-- <img src="images/email1.png" alt="Email Template 1"> -->
-                    <!-- <img src="images/email2.png" alt="Email Template 2">
-                    <img src="images/email3.png" alt="Email Template 3">
-                    <img src="images/email4.png" alt="Email Template 4">
-                    <img src="images/email5.png" alt="Email Template 5"> -->
+                    <img class='help-image'src="images/email1.png" alt="Email Template 1">
+                    <img class='help-image'src="images/email2.png" alt="Email Template 2">
+                    <img class='help-image'src="images/email3.png" alt="Email Template 3">
+                    <img class='help-image'src="images/email4.png" alt="Email Template 4">
+                    <img class='help-image'src="images/email5.png" alt="Email Template 5">
                 </div>
             </div>
         </section>
         
-        
-
         <!-- Step 4: Compose Your Email -->
         <section class="step">
             <h2>Step 4: Compose Your Email</h2>
@@ -203,22 +201,6 @@
     </footer>
 </body>
 <script>
-   const sliderContainer = document.querySelector('.slider-container');
-    const images = sliderContainer.querySelectorAll('img');
-    let currentIndex = 0;
-
-    function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        const translateX = currentIndex * -20; // Adjust based on image width
-
-        sliderContainer.style.transform = `translateX(${translateX}%)`;
-
-        setTimeout(changeImage, 3000); // Change image every 3 seconds
-    }
-
-    // Initial call to start the animation
-    setTimeout(changeImage, 3000);
 </script>
-
 
 </html>

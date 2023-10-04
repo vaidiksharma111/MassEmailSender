@@ -191,8 +191,7 @@ const mailOptions = {
         service: 'Gmail',
         auth: {
             user: req.body['sender-email'],
-            // pass: req.body.password,
-            pass: 'qjvl skyp msvt rqwd',
+            pass: req.body.password,
         }
     });
 

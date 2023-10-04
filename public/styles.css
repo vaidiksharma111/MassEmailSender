@@ -4,8 +4,8 @@
 }
 
 :root {
-    --grey: #2c3e50;
-    --white: #4f6b87;
+     --grey: #536976;
+    --white: #292E49;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
 
 /* Header styles */
 header {
-    background: var(--grey);
+    background: linear-gradient(to bottom right, var(--grey), var(--white));
     color: #ffffff;
     text-align: center;
     padding: 50px 0;
@@ -61,7 +61,7 @@ header p {
 .get-started-button {
     display: inline-block;
     padding: 10px 10px;
-    background-color: var(--grey);
+    background: linear-gradient(to right, var(--grey), var(--white));
     color: #ffffff;
     text-align: center;
     font-size: 15px;
@@ -144,7 +144,7 @@ input[type="checkbox"] {
     display: block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: var(--grey);
+    background: linear-gradient(to right, var(--grey), var(--white));
     color: #ffffff;
     text-align: center;
     font-size: 16px;
@@ -194,7 +194,7 @@ input[type="file"]:focus {
 
 /* Style for the selected file name */
 input[type="file"]::file-selector-button {
-    background-color: var(--grey);
+    background: linear-gradient(to right, var(--grey), var(--white));
     color: #ffffff;
     padding: 10px 20px;
     border: none;
@@ -211,7 +211,6 @@ input[type="file"]:disabled {
 .back-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--grey);
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -334,7 +333,7 @@ label[for="password-toggle"] {
 button {
     display: inline-block;
     padding: 8px 20px;
-    background-color: var(--grey);
+    background: linear-gradient(to right, var(--grey), var(--white));
     color: #ffffff;
     text-align: center;
     font-size: 18px;
@@ -376,7 +375,7 @@ button:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: var(--grey);
+    background: linear-gradient(to right, var(--grey), var(--white));
 }
 
 .loader {

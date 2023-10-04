@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
     <style> 
         :root {
-            --grey: #2c3e50;
-            --white: #4f6b87;
+            --grey: #536976;
+            --white: #292E49;
         }
 
         html,
@@ -23,7 +23,7 @@
         }
 
         header {
-            background-color: var(--grey);
+            background: linear-gradient(to bottom right, var(--grey), var(--white));
             color: #ffffff;
             text-align: center;
             padding: 20px 0;
@@ -31,7 +31,7 @@
 
         header h1 {
             font-size: 2rem;
-            margin-top: 60px;
+            margin-top: 50px;
         }
 
         header p {
@@ -74,19 +74,16 @@
         }
 
         footer {
-            background-color: var(--grey);
+            background: linear-gradient(to right, var(--grey), var(--white));
             color: #ffffff;
             text-align: center;
             padding: 18px 0;
-            position: absolute;
-            bottom: 0;
             width: 100%;
         }
 
         .back-button {
             display: inline-block;
             padding: 10px 20px;
-            background-color: var(--grey);
             color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
@@ -114,6 +111,28 @@
 
         .back-button {
             font-weight: normal;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 50%;
+            height: 45px;
+            margin: 3% auto;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon {
+            height: 30px;
+        }
+
+        @media (min-width: 500px) {
+            footer {
+                position: absolute;
+                bottom: 0;
+            }
         }
 
         @media (max-width: 850px) {
@@ -144,26 +163,28 @@
         </div>
         <div class="reach">
             <div class="contact-card">
-                <p>Name: Vaidik Sharma</p>
-                <p>Mobile Number: 9672772860</p>
-                <p>Email Addresses:</p>
+                <h2>Contact</h2>
                 <ul>
-                    <li>iib2020024@iiita.ac.in</li>
-                    <li>vaidiksharma111@gmail.com</li>
+                    <li>+91 9672772860</li>
+                    <li>+91 6398074753</li>
+                    <li>+91 7903099868</li>
                 </ul>
             </div>
             <div class="email-card">
-                <p>Name: Vaidik Sharma</p>
-                <p>Mobile Number: 9672772860</p>
-                <p>Email Addresses:</p>
+                <h2>E-Mail</h2>
                 <ul>
-                    <li>iib2020024@iiita.ac.in</li>
+                    <li>vk9006379@gmail.com</li>
+                    <li>rayush920@gmail.com</li>
                     <li>vaidiksharma111@gmail.com</li>
                 </ul>
             </div>
         </div>
     </div>
-
+    <div class='social'>
+        <a class='icon' href="https://github.com/Viinay97" target='_blank'><img  class='icon' src="images/github.png" alt=""></a>
+        <a class='icon' href="https://www.instagram.com/ayus8949/" target='_blank'><img  class='icon' src="images/instagram.png" alt=""></a>
+        <a class='icon'href="https://www.linkedin.com/in/vaidik-sharma-8b3b78240" target='_blank'><img  class='icon' src="images/linkedin.png" alt=""></a>
+    </div>
     <footer>
         &copy; 2023 Personalized Email Sender. All rights reserved.
     </footer>

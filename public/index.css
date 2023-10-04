@@ -1,6 +1,6 @@
 :root {
-    --grey: #2c3e50;
-    --white: #4f6b87;
+    --grey: #536976;
+    --white: #292E49;
 }
 
 html,
@@ -21,7 +21,7 @@ body {
 }
 
 header {
-    background-color: var(--grey);
+    background: linear-gradient(to bottom right, var(--grey), var(--white));
     color: #ffffff;
     text-align: center;
     padding: 50px 0;
@@ -51,7 +51,7 @@ header p {
 
 footer {
     text-align: center;
-    background-color: var(--grey);
+    background: linear-gradient(to right, var(--grey), var(--white));
     bottom: 0;
     color: #ffffff;
     font-size: 16px;
@@ -84,7 +84,6 @@ footer {
     border: 1px solid #eeeeee;
     border-radius: 5px;
     margin: 2px;
-    /* Apply a basic box shadow */
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 
 }
@@ -103,7 +102,7 @@ footer {
     width: 44%;
     margin: 30px auto;
     padding: 10px 10px;
-    background-color: var(--grey);
+    background :linear-gradient(to right, var(--grey), var(--white));
     color: #ffffff;
     text-align: center;
     font-size: 18px;
@@ -151,7 +150,6 @@ footer {
 .back-button {
     display: inline-block;
     padding: 10px 15px;
-    background-color: var(--grey);
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;

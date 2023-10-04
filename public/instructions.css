@@ -5,9 +5,9 @@
 }
 
 :root {
-    --grey: #2c3e50;
-    --white: #4f6b87;
-    --red: #00308F;
+     --grey: #536976;
+    --white: #292E49;
+    --blue: #00308F;
 }
 
 body {
@@ -27,7 +27,7 @@ body {
 }
 
 header {
-    background-color: var(--grey);
+    background: linear-gradient(to bottom right, var(--grey), var(--white));
     color: #ffffff;
     text-align: center;
     padding: 50px 0;
@@ -57,7 +57,7 @@ header h1 {
     align-items: center;
     height: 84%;
     color: white;
-    background-color: var(--red);
+    background: linear-gradient(to bottom right, var(--grey), var(--white));
     padding: 10px 25px;
     margin-right: 10px;
     border-top-left-radius: 5px;
@@ -65,15 +65,15 @@ header h1 {
 }
 
 .important {
-    color: var(--red);
+    color: var(--blue);
 }
 
 strong {
-    color: var(--red);
+    color: var(--blue);
 }
 
 .reasons {
-    color: red;
+    color: var(--grey);
     font-size: 14px;
 }
 
