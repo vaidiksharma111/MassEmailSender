@@ -20,14 +20,17 @@
     </header>
     <!-- <h1>Mass Email Sender</h1> -->
     <div class="container">
-        <a href="/" class="back-button">Home</a>
-
+        <div class="routes">
+            <a class="back-button" href="/">Home</a>
+            <a class="back-button" href="/how-to-use">Tutorial</a>
+            <a class="back-button" href="contact-page.html">Contact Us</a>
+        </div>
         <form action="/send-email" method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
             <!-- <label for="file">Add personalization (please upload data in an excel file):</label> -->
 
         <!-- <form action="/send-email" method="POST" enctype="multipart/form-data"> -->
             <label for="file">Add personalization</label>
-            <p>Please upload data in an excel file (.xls, .xlsx)</p>
+            <p style="color: green">Please upload data in an excel file (.xls, .xlsx)</p>
 
             <input type="file" name="file" id="fileInput" accept=".xlsx, .xls" onchange="readAndPrintEmailColumn()" >
 

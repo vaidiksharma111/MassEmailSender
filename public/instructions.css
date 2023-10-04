@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+     --grey: #536976;
+    --white: #292E49;
+    --blue: #00308F;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+header {
+    background: linear-gradient(to bottom right, var(--grey), var(--white));
+    color: #ffffff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    padding: 0 5%;
+}
+
+.step {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.step p {
+    padding: 0 10px;
+}
+
+.number {
+    justify-content: center;
+    background: beige;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 84%;
+    color: white;
+    background: linear-gradient(to bottom right, var(--grey), var(--white));
+    padding: 10px 25px;
+    margin-right: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.important {
+    color: var(--blue);
+}
+
+strong {
+    color: var(--blue);
+}
+
+.reasons {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+.reason {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#close {
+    border-radius: 5px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    width: 75px;
+    background-color: rgb(193, 1, 1);
+    padding: 8px 5px;
+    color: white;
+    text-decoration: none;
+}
+
+#close:hover {
+    background-color: rgb(152, 1, 1);
+}
+
+/* Style for grid items */
+.instructions-grid > div {
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Define the grid container */
+.instructions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 10px; /* Gap between grid items */
+}
+
+/* For small screens (1 column, 8 rows) */
+@media (max-width: 767px) {
+    .instructions-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, auto);
+    }
+}
+
+

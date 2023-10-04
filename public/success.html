@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Sent Successfully</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --grey: #536976;
+            --white: #292E49;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, var(--grey), var(--white));
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,26 +23,31 @@
         }
 
         .success-message {
+            display: flex;
+            flex-direction: column;
+            min-height: 30vh;
+            width: 80%;
             text-align: center;
-            background-color: #4CAF50;
-            color: white;
+            background: white;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
         }
 
         .success-message h1 {
+            color: var(--white);
             font-size: 2em;
             margin: 0;
         }
 
         .success-message p {
+            color: green;
             font-size: 1.2em;
             margin-bottom: 20px;
         }
 
         .return-button {
-            background-color: #007BFF;
+            background: linear-gradient(to right, var(--grey), var(--white));
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -45,6 +55,7 @@
             font-size: 16px;
             text-decoration: none;
             cursor: pointer;
+            margin-bottom: 10px;
         }
 
         .return-button:hover {
@@ -57,7 +68,7 @@
         <h1>Email Sent Successfully!</h1>
         <p>Your email has been sent successfully.</p>
         <a href="/" class="return-button">Return to Main Page</a>
-        <a href="/create-email" class="return-button">Get Started</a>
+        <a href="/create-email" class="return-button">Write Email &#x279C;</a>
     </div>
 </body>
 </html>
