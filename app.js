@@ -43,7 +43,6 @@ app.get('/create-email', (req, res) => {
   res.sendFile(publicpath + '/home.html');
 });
 
-
 app.post('/send-email', upload.fields([{ name: 'file' }, { name: 'fileMaterial' }]), emailFunctions.processMessageContent, async (req, res) => {
   console.log('Global Found Words:', req.globalFoundWords);
   try {
