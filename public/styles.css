@@ -72,7 +72,6 @@ header p {
 }
 
 .get-started-button:hover {
-    background-color: #435668;
     background-color: var(--white);
 }
 
