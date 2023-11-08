@@ -2,6 +2,8 @@
 
 The Email Sender Application is a web-based tool that allows users to send personalized email messages to a list of recipients. This application is particularly useful for sending bulk emails with customized content to multiple recipients.
 
+To visit the website, please visit- https://personalised-email-sender.onrender.com/
+
 ## Features
 
 - **Excel File Integration**: Users can upload an Excel file containing recipient data, including email addresses and other relevant information.
